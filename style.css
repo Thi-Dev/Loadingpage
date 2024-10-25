@@ -16,19 +16,50 @@
     align-items: center;
     height: 300px;
     width: 300px;
-    border : dotted 30px #4cc9f0;
+    box-shadow: 
+        0 0 15px rgba(76, 201, 240, 0.5),  /* bleu clair */
+        0 0 25px rgba(0, 255, 156, 0.5),   /* vert clair */
+        0 0 35px rgba(252, 243, 0, 0.5),   /* jaune */
+        0 0 45px rgba(255, 107, 53, 0.5);  /* orange */
+    border-top : dotted 30px #4cc9f0;
+    border-bottom: dotted 30px #00FF9C;
+    border-left: dotted 30px #fcf300;
+    border-right: dotted 30px #ff6b35;
     color: #b5179e;
     margin-top: 200px;
     font-family: "Monoton", sans-serif;
     font-size: 2em;
-    font-weight: 400px;
+    font-weight: 400;
     font-style: normal;
     border-radius: 50% ;
-    animation : rotate 2s linear infinite;
-}
+    animation-name: spin ;                       /* name of the animation*/
+    animation-duration: 2s;                     /* Timing */
+    animation-timing-function: ease-in-out;     /* making the animation smoother at the start and the end */
+    animation-delay: 0.5ms;                     /* time waiting for the begining */
+    animation-iteration-count: infinite;        /* count how often should be the animation*/
+    animation-direction: alternate;             /* reverse the animation at the end*/
+    animation-play-state: running;              /* allows to play the animation */
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg);
+    /* animation : 2s spin ease-in-out infinite alternate : shorthand*/
+
+
+}
+.loader:hover{
+    animation-play-state: paused;               /* stop the animation when the mouse is over it*/
+    cursor: pointer;
+
+}
+@keyframes spin{                                /* keyword for an animation */
+    0% {
+
+    }
+    50%{                                
+        scale: 2;                               /* to enlarge at 50% */
+        transform: rotate(0);                   /* don't move at 50%*/
+         
+    }
+    100%{
+        transform: rotate(360deg);
+        scale: 1;
     }
 }
